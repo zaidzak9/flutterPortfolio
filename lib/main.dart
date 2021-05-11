@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/diceApp/diceapp.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
                 ),
                 Card(
                   color: Colors.white,
-                  margin: EdgeInsets.symmetric(vertical: 10,horizontal: 25),
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   child: Padding(
                     padding: EdgeInsets.all(5),
                     child: ListTile(
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
                 ),
                 Card(
                   color: Colors.white,
-                  margin: EdgeInsets.symmetric(vertical: 10,horizontal: 25),
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   child: Padding(
                     padding: EdgeInsets.all(5),
                     child: ListTile(
@@ -82,6 +83,15 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
+                ElevatedButton(
+                  child: Text('Enter'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AppHome()),
+                    );
+                  },
                 )
               ],
             ),
@@ -89,3 +99,33 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
+
+class AppHome extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.teal,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(
+                child: Text('Return'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DiceApp()),
+                  );
+                },
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+}
+

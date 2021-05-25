@@ -16,8 +16,27 @@ class DiceApp extends StatelessWidget {
           title: Text('Dicee'),
           backgroundColor: Colors.red,
         ),
+        body: SafeArea(
+          child: Center(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Image.asset('images/dice1.png'),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Image.asset('images/dice1.png'),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
-
 }

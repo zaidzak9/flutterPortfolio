@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/diceApp/diceapp.dart';
+import 'package:flutter_portfolio/xylophone/xylophoneApp.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -112,11 +113,20 @@ class AppHome extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               ElevatedButton(
-                child: Text('Return'),
+                child: Text('Dice App'),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => DiceApp()),
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: Text('Xylophone App'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => XylophoneApp()),
                   );
                 },
               )

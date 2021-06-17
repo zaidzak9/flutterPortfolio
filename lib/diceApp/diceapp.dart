@@ -17,10 +17,16 @@ class DiceApp extends StatefulWidget {
 class _DiceAppState extends State<DiceApp> {
   int imageNumberLeft = 1;
   int imageNumberRight = 1;
+
+
+  void generateRandomNumber(){
+    imageNumberLeft = Random().nextInt(6)+1;
+    imageNumberRight = Random().nextInt(6)+1;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+      return Scaffold(
         backgroundColor: Colors.red,
         appBar: AppBar(
           title: Text('Dicee'),
@@ -34,7 +40,7 @@ class _DiceAppState extends State<DiceApp> {
                   child: TextButton(
                       onPressed: () {
                         setState(() {
-                          imageNumberLeft = Random().nextInt(6)+1;
+                          generateRandomNumber();
                         });
                       },
                       child: Image.asset('images/dice$imageNumberLeft.png')),
@@ -43,7 +49,7 @@ class _DiceAppState extends State<DiceApp> {
                   child: TextButton(
                       onPressed: () {
                         setState(() {
-                          imageNumberRight = Random().nextInt(6)+1;
+                          generateRandomNumber();
                         });
                       },
                       child: Image.asset('images/dice$imageNumberRight.png')),
@@ -52,7 +58,6 @@ class _DiceAppState extends State<DiceApp> {
             ),
           ),
         ),
-      ),
     );
   }
 }

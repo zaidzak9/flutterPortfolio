@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/diceApp/diceapp.dart';
-import 'package:flutter_portfolio/xylophone/xylophoneApp.dart';
+import 'package:flutter_portfolio/quizApp/quizAppHome.dart';
+import 'package:flutter_portfolio/xylophoneApp/xylophoneApp.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -144,7 +145,7 @@ class AppHome extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => XylophoneApp()),
+                      MaterialPageRoute(builder: (context) => QuizHome()),
                     );
                   },
                   style: ButtonStyle(

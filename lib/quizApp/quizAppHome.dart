@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/quizApp/questionUtils.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -14,33 +15,8 @@ class QuizHome extends StatefulWidget {
 }
 
 class _QuizHomeState extends State<QuizHome> {
-  List<Icon> scoreKeeper = [];
 
-  List<String> questions = [
-    'White chocolate isn\'t chocolate',
-    'Africa is the biggest continent in the world',
-    'LeBron James is the worlds best golfer'
-  ];
-
-  List<bool> answer = [true, false, false];
-
-  int questionNum = 0;
-
-  void counter(){
-    print(questionNum);
-    if (questionNum <questions.length - 1) {
-      questionNum++;
-      print('cunt is going thru');
-      bool correctAnswer = answer[questionNum];
-      if (correctAnswer) {
-        scoreKeeper.add(Icon(Icons.check, color: Colors.green));
-      } else {
-        scoreKeeper.add(Icon(Icons.cancel, color: Colors.red));
-      }
-    }else{
-      print('do nothin');
-    }
-  }
+  QuestionUtils questionUtils = QuestionUtils();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +37,7 @@ class _QuizHomeState extends State<QuizHome> {
                   padding: const EdgeInsets.all(10.0),
                   child: Center(
                     child: Text(
-                      questions[questionNum],
+                      questionUtils.getQuestion(),
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -89,7 +65,7 @@ class _QuizHomeState extends State<QuizHome> {
                   ),
                   onPressed: () {
                       setState(() {
-                        counter();
+                        questionUtils.counter();
                       });
                   },
                 ),
@@ -113,13 +89,13 @@ class _QuizHomeState extends State<QuizHome> {
                   ),
                   onPressed: () {
                       setState(() {
-                        counter();
+                        questionUtils.counter();
                       });
                   },
                 ),
               ),
             ),
-            Row(children: scoreKeeper)
+            Row(children: questionUtils.scoreKeeper)
           ],
         ),
       ),
